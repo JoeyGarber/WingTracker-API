@@ -87,7 +87,8 @@ router.patch('/restaurants/:id', requireToken, removeBlanks, (req, res, next) =>
       requireOwnership(req, restaurant)
 
       // pass the result of Mongoose's `.update` to the next `.then`
-      return restaurant.updateOne(req.body.restaurant)
+      restaurant.set(req.body.restaurant)
+      return restaurant.save()
     })
     // if that succeeded, return 204 and no JSON
     .then(() => res.sendStatus(204))
