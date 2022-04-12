@@ -5,7 +5,8 @@ const wingSchema = new mongoose.Schema(
     name: {
       type: String,
       required: true,
-      unique: true
+      unique: true,
+      sparse: true
     },
     spiciness: {
       type: Number,
