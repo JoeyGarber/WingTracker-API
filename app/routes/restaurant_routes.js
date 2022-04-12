@@ -30,16 +30,17 @@ const router = express.Router()
 // INDEX
 // GET /examples
 router.get('/restaurants', requireToken, (req, res, next) => {
-  Restaurant.find()
-    .then(restaurants => {
+  // Probably want to do: Restaurant.find({ owner: req.user.id })
+  Restaurant.find({ owner: req.user.id })
+    .then((restaurants) => {
       // `examples` will be an array of Mongoose documents
       // we want to convert each one to a POJO, so we use `.map` to
       // apply `.toObject` to each one
-      return restaurants.map(restaurants => restaurants.toObject())
+      return restaurants.map((restaurants) => restaurants.toObject())
     })
-    // respond with status 200 and JSON of the examples
-    .then(restaurants => res.status(200).json({ restaurants: restaurants }))
-    // if an error occurs, pass it to the handler
+  // respond with status 200 and JSON of the examples
+    .then((restaurants) => res.status(200).json({ restaurants: restaurants }))
+  // if an error occurs, pass it to the handler
     .catch(next)
 })
 
@@ -49,7 +50,7 @@ router.get('/restaurants/:id', requireToken, (req, res, next) => {
   // req.params.id will be set based on the `:id` in the route
   Restaurant.findById(req.params.id)
     .then(handle404)
-    // if `findById` is succesful, respond with 200 and "example" JSON
+    // if `findById` is successful, respond with 200 and "example" JSON
     .then(restaurant => res.status(200).json({ restaurant: restaurant.toObject() }))
     // if an error occurs, pass it to the handler
     .catch(next)

@@ -2,7 +2,7 @@
 
 API="http://localhost:4741"
 URL_PATH="/restaurants"
-TOKEN="d2bdbcc219185380b0953d8eb9e154ed"
+TOKEN="3b908ffee95862307718a0a3357a7692"
 
 
 curl "${API}${URL_PATH}" \

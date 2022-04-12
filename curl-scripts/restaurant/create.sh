@@ -3,9 +3,9 @@
 API="http://localhost:4741"
 URL_PATH="/restaurants"
 
-NAME="Wingos"
-WEBSITE="www.wingos.com"
-TOKEN="d2bdbcc219185380b0953d8eb9e154ed"
+NAME="It's Angry"
+WEBSITE="About null names for wings"
+TOKEN="bf041b37cb9e9a97c714bcfa210ab4a2"
 
 curl "${API}${URL_PATH}" \
   --include \
