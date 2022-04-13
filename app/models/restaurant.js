@@ -5,12 +5,10 @@ const restaurantSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
-      unique: true
+      required: true
     },
     website: {
-      type: String,
-      unique: true
+      type: String
     },
     wings: [wingSchema],
     owner: {

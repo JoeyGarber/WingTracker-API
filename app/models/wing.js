@@ -4,9 +4,7 @@ const wingSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
-      unique: true,
-      sparse: true
+      required: true
     },
     spiciness: {
       type: Number,
